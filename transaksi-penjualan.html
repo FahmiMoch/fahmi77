@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pembayaran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #FFC107, #FF5722); /* Gradien latar belakang */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out; /* Efek transisi saat hover */
+        }
+        .container:hover {
+            transform: scale(1.02); /* Efek zoom saat hover */
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .form-group .checkbox-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group .checkbox-group label {
+            margin-bottom: 5px;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .form-actions input[type="submit"], .form-actions input[type="reset"], .form-actions input[type="button"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .form-actions input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+        }
+        .form-actions input[type="submit"]:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .form-actions input[type="reset"] {
+            background-color: #6c757d;
+            color: white;
+        }
+        .form-actions input[type="reset"]:hover {
+            background-color: #5a6268;
+            transform: scale(1.05);
+        }
+        .form-actions input[type="button"] {
+            background-color: #28a745;
+            color: white;
+        }
+        .form-actions input[type="button"]:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+        .total-amount {
+            text-align: right;
+            margin-top: 20px;
+        }
+        .hover-border {
+            border: 2px solid #007bff;
+            transition: border-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 align="center"><b>Pembayaran</b></h2>
+        <form name="form" id="paymentForm">
+            <div class="form-group">
+                <label for="jam">Jam</label>
+                <input type="time" name="jam" id="jam">
+            </div>
+            <div class="form-group">
+                <label for="tanggal">Tanggal</label>
+                <input type="date" name="tanggal" id="tanggal">
+            </div>
+            <div class="form-group">
+                <label for="nama_pertama">Nama Pertama</label>
+                <input type="text" name="nama_pertama" id="nama_pertama">
+            </div>
+            <div class="form-group">
+                <label for="nama_kedua">Nama Kedua</label>
+                <input type="text" name="nama_kedua" id="nama_kedua">
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <input type="text" name="alamat" id="alamat">
+            </div>
+            <div class="form-group">
+                <label for="kota">Kota/Kabupaten</label>
+                <input type="text" name="kota" id="kota">
+            </div>
+            <div class="form-group">
+                <label for="kecamatan">Kecamatan</label>
+                <input type="text" name="kecamatan" id="kecamatan">
+            </div>
+            <div class="form-group">
+                <label for="provinsi">Provinsi</label>
+                <input type="text" name="provinsi" id="provinsi">
+            </div>
+            <div class="form-group">
+                <label for="kodepos">Kode Pos</label>
+                <input type="text" name="kodepos" id="kodepos">
+            </div>
+            <div class="form-group">
+                <label>Pembayaran</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="bca" value="bca">BCA</label>
+                    <label><input type="checkbox" name="bri" value="bri">BRI</label>
+                    <label><input type="checkbox" name="mandiri" value="mandiri">Mandiri</label>
+                    <label><input type="checkbox" name="gopay" value="gopay">Gopay</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="kode_pembelian">Kode Pembelian</label>
+                <select name="kode_pembelian" id="kode_pembelian">
+                    <option value="800000">Bundling 01000</option>
+                    <option value="1850000">Bundling 01200</option>
+                    <option value="385000">Bundling 01300</option>
+                    <option value="1300000">Bundling 01400</option>
+                    <option value="2850000">Bundling 01500</option>
+                    <option value="999999">Bundling 01600</option>
+                    <option value="750000">Bundling 01700</option>
+                    <option value="445000">Bundling 01800</option>
+                    <option value="1700000">Bundling 01900</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="negara">Negara</label>
+                <select name="negara" id="negara">
+                    <option>Indonesia</option>
+                    <option>Malaysia</option>
+                    <option>Singapura</option>
+                    <option>Thailand</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="keterangan">Keterangan :</label>
+                <textarea name="keterangan" id="keterangan" cols="40" rows="5"></textarea>
+            </div>
+            <hr>
+            <div class="form-actions">
+                <input type="submit" value="Kirim">
+                <input type="button" value="Rincian Pemesan" id="detailsBtn" disabled>
+                <input type="reset" value="Reset" id="resetBtn">
+            </div>
+        </form>
+        <div class="total-amount">
+            <p>Total Pembayaran: <strong id="totalAmount">Rp 0</strong></p>
+        </div>
+    </div>
+    <script>
+        let orderDetails = null;
+
+        document.addEventListener('mousemove', function(event) {
+            var inputs = document.querySelectorAll('.form-group input, .form-group select, .form-group textarea');
+            inputs.forEach(function(input) {
+                var rect = input.getBoundingClientRect();
+                var distance = Math.sqrt(
+                    Math.pow(Math.max(0, rect.left - event.clientX), 2) +
+                    Math.pow(Math.max(0, event.clientX - rect.right), 2) +
+                    Math.pow(Math.max(0, rect.top - event.clientY), 2) +
+                    Math.pow(Math.max(0, event.clientY - rect.bottom), 2)
+                );
+
+                if (distance < 100) { // Jarak dalam pixel yang dianggap dekat
+                    input.classList.add('hover-border');
+                } else {
+                    input.classList.remove('hover-border');
+                }
+            });
+        });
+
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var kodePembelian = document.getElementById('kode_pembelian').value;
+            if (kodePembelian) {
+                var total = parseInt(kodePembelian);
+                document.getElementById('totalAmount').textContent = 'Rp ' + total.toLocaleString('id-ID');
+                alert('Pemesanan berhasil. Total harga yang harus dibayarkan adalah Rp ' + total.toLocaleString('id-ID'));
+                orderDetails = {
+                    kode: kodePembelian,
+                    harga: total
+                };
+                document.getElementById('detailsBtn').disabled = false; // Aktifkan tombol rincian pemesan
+            } else {
+                alert('Silakan pilih kode pembelian.');
+            }
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            document.getElementById('totalAmount').textContent = 'Rp 0';
+            orderDetails = null; // Hapus rincian pemesanan saat reset
+            document.getElementById('detailsBtn').disabled = true; // Nonaktifkan tombol rincian pemesan
+        });
+
+        document.getElementById('detailsBtn').addEventListener('click', function() {
+            if (orderDetails) {
+                alert('Rincian Pemesanan:\nKode Produk: ' + orderDetails.kode + '\nHarga: Rp ' + orderDetails.harga.toLocaleString('id-ID') + '\nTerima kasih telah berbelanja!');
+            } else {
+                alert('Silakan kirimkan pesanan terlebih dahulu untuk melihat rincian.');
+            }
+        });
+
+	document.getElementById('paymentForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var kodePembelian = document.getElementById('kode_pembelian').value;
+    var jam = document.getElementById('jam').value;
+    var tanggal = document.getElementById('tanggal').value;
+    var namaPertama = document.getElementById('nama_pertama').value;
+    var namaKedua = document.getElementById('nama_kedua').value;
+    var email = document.getElementById('email').value;
+    var alamat = document.getElementById('alamat').value;
+    var kota = document.getElementById('kota').value;
+    var kecamatan = document.getElementById('kecamatan').value;
+    var provinsi = document.getElementById('provinsi').value;
+    var kodepos = document.getElementById('kodepos').value;
+    var negara = document.getElementById('negara').value;
+    var keterangan = document.getElementById('keterangan').value;
+
+    if (kodePembelian) {
+        var total = parseInt(kodePembelian);
+        document.getElementById('totalAmount').textContent = 'Rp ' + total.toLocaleString('id-ID');
+        alert('Rekapan Pemesanan:\n' +
+            'Jam: ' + jam + '\n' +
+            'Tanggal: ' + tanggal + '\n' +
+            'Nama Pertama: ' + namaPertama + '\n' +
+            'Nama Kedua: ' + namaKedua + '\n' +
+            'E-mail: ' + email + '\n' +
+            'Alamat: ' + alamat + '\n' +
+            'Kota/Kabupaten: ' + kota + '\n' +
+            'Kecamatan: ' + kecamatan + '\n' +
+            'Provinsi: ' + provinsi + '\n' +
+            'Kode Pos: ' + kodepos + '\n' +
+            'Negara: ' + negara + '\n' +
+            'Keterangan: ' + keterangan + '\n' +
+            'Kode Pembelian: ' + kodePembelian + '\n' +
+            'Total Pembayaran: Rp ' + total.toLocaleString('id-ID') + '\n' +
+            'Pemesanan berhasil!');
+        orderDetails = {
+            kode: kodePembelian,
+            harga: total
+        };
+        document.getElementById('detailsBtn').disabled = false; // Aktifkan tombol rincian pemesan
+    } else {
+        alert('Silakan pilih kode pembelian.');
+    }
+});
+    </script>
+</body>
+</html>

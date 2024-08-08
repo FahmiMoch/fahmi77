@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      body {
+        background-color: gray;
+        color: white;
+      }
+
+      table {
+        width: 100%;
+        height: 100%;
+        border-collapse: collapse;
+      }
+
+      #mySidenav {
+        position: relative;
+        width: 120px;
+      }
+
+      #mySidenav a {
+        position: absolute;
+        left: -100px;
+        transition: 0.3s;
+        padding: 15px;
+        width: 120px;
+        text-decoration: none;
+        font-size: 15px;
+        color: white;
+        border-radius: 0 5px 5px 0;
+        display: block;
+        text-align: center;
+      }
+
+      #mySidenav a:hover {
+        left: 0;
+      }
+
+      #promo {
+        top: 30px;
+        background-color: #04aa6d;
+      }
+      #catalog {
+        top: 100px;
+        background-color: #2196f3;
+      }
+      #buy {
+        top: 200px;
+        background-color: #f44336;
+      }
+      #company {
+        top: 270px;
+        background-color: #555;
+      }
+      #login {
+        top: 360px;
+        background-color: #ff5722;
+      }
+      #about {
+        top: 440px;
+        background-color: #9c27b0;
+      }
+
+      .content {
+        margin-left: 140px;
+        padding: 20px;
+        background-color: #ffc470;
+      }
+
+      .gallery {
+        border: 1px solid #ccc;
+        margin: 10px;
+      }
+
+      .gallery:hover {
+        border: 1px solid black;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: auto;
+      }
+
+      .desc {
+        padding: 15px;
+        text-align: center;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .responsive {
+        padding: 0 6px;
+        float: left;
+        width: 24.99999%;
+      }
+
+      @media only screen and (max-width: 700px) {
+        .responsive {
+          width: 49.99999%;
+          margin: 6px 0;
+        }
+      }
+
+      @media only screen and (max-width: 500px) {
+        .responsive {
+          width: 100%;
+        }
+      }
+
+      .clearfix:after {
+        content: '';
+        display: table;
+        clear: both;
+      }
+
+      .accordion {
+        background-color: #4793af;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+      }
+
+      .active,
+      .accordion:hover {
+        background-color: #dd5746;
+      }
+
+      .panel {
+        padding: 0 18px;
+        display: none;
+        background-color: orange;
+        overflow: hidden;
+      }
+
+      .nav-links a {
+        margin: 0 15px;
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-size: 18pt;
+      }
+
+      .nav-links a:hover {
+        background-color: #dd5746;
+        border: 2px solid #333;
+        padding: 10px 15px;
+        border-radius: 5px;
+      }
+
+      .maps-history-container {
+        display: flex;
+        gap: 20px; /* Tambahkan jarak antara maps dan history */
+        margin-top: 20px; /* Tambahkan jarak antara accordion dan maps-history-container */
+      }
+
+      .maps,
+      .history {
+        flex: 1;
+        max-width: calc(50% - 10px); /* Maksimal lebar 50% - jarak antara maps dan history */
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      .history {
+        background-color: #4793af;
+      }
+
+      .banner-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px; /* Adjust height as needed */
+      }
+
+      .banner {
+        background-color: #ff6347;
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        max-width: 1300px;
+        width: 100%;
+      }
+
+      .banner h1 {
+        font-size: 36px;
+        margin: 0;
+      }
+
+      .banner p {
+        font-size: 18px;
+        margin: 10px 0 0;
+      }
+
+      .banner .button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 18px;
+        color: #ff6347;
+        background-color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .banner .button:hover {
+        background-color: #f8f8f8;
+      }
+
+      .inner-box {
+        background-color: #dd5746; /* Warna latar belakang box di dalam */
+        border: 2px solid #333; /* Batas untuk inner-box */
+        border-radius: 8px;
+        padding: 15px; /* Jarak dalam box */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan untuk memberikan efek 3D */
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        background-color: #dd5746;
+        color: white;
+        padding: 20px;
+      }
+
+      .footer div {
+        flex: 1;
+      }
+
+      .footer .center {
+        text-align: center;
+      }
+
+      .footer .left {
+        text-align: left;
+      }
+
+      .footer .right {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <marquee behavior="alternate" direction="left"><b>SELAMAT DATANG!</b></marquee>
+    <marquee scrolldelay="300" behavior="slide" direction="right"><b>SELAMAT BERBELANJA!</b></marquee>
+    <table>
+      <!-- Ini adalah Header -->
+      <tr class="header">
+        <td colspan="2" bgcolor="#4793AF">
+          <h1 align="center" style="text-shadow: 2px 2px black">FACHM STORE</h1>
+          <p align="center" style="text-shadow: 2px 2px black"><b style="font-size: 20px">Learn From Process, Everything magical and its Possible!</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" bgcolor="#4793AF" class="nav-links">
+          <p align="center">
+            <a href="#" target="_blank" style="text-shadow: 2px 2px black"><b>Home</b></a>
+            <a href="#history" target="_blank" style="text-shadow: 2px 2px black"><b>Sejarah</b></a>
+            <a href="#maps" target="_blank" style="text-shadow: 2px 2px black"><b>Lokasi</b></a>
+            <a href="#news" target="_blank" style="text-shadow: 2px 2px black"><b>Berita</b></a>
+          </p>
+        </td>
+      </tr>
+      <tr valign="top" bgcolor="black">
+        <td bgcolor="#4793AF" width="140px">
+          <div id="mySidenav">
+            <a href="promoo.html" id="promo" style="text-shadow: 2px 2px black">Promo</a>
+            <a href="katalog.html" id="catalog" style="text-shadow: 2px 2px black">Halaman Produk</a>
+            <a href="transaksi-penjualan.html" id="buy" style="text-shadow: 2px 2px black">Transaksi</a>
+            <a href="company.html" id="company" style="text-shadow: 2px 2px black">Halaman Perusahaan</a>
+            <a href="login.html" id="login" style="text-shadow: 2px 2px black">Login</a>
+            <a href="tentang-saya.html" id="about" style="text-shadow: 2px 2px black">Halaman Saya</a>
+          </div>
+        </td>
+        <td class="content">
+          <div class="responsive">
+            <div class="gallery">
+              <a href="katalog.html">
+                <img src="gambar1.jpeg" alt="model1" />
+              </a>
+              <div class="desc" style="text-shadow: 2px 2px black">Keindahan</div>
+            </div>
+          </div>
+
+          <div class="responsive">
+            <div class="gallery">
+              <a target="_blank" href="gambar2.jpeg">
+                <img src="gambar2.jpeg" alt="model2" />
+              </a>
+              <div class="desc" style="text-shadow: 2px 2px black">Detail</div>
+            </div>
+          </div>
+
+          <div class="responsive">
+            <div class="gallery">
+              <a target="_blank" href="gambar3.jpeg">
+                <img src="gambar3.jpeg" alt="model3" />
+              </a>
+              <div class="desc" style="text-shadow: 2px 2px black">Kenyamanan</div>
+            </div>
+          </div>
+
+          <div class="responsive">
+            <div class="gallery">
+              <a target="_blank" href="gambar4.jpeg">
+                <img src="gambar4.jpeg" alt="model4" />
+              </a>
+              <div class="desc" style="text-shadow: 2px 2px black">Keberlanjutan</div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <!-- Accordion -->
+          <button class="accordion" style="text-shadow: 2px 2px black">Keindahan</button>
+          <div class="panel">
+            <p style="text-shadow: 2px 2px black">
+              Selamat datang di Toko Kami, destinasi utama bagi para pencinta fashion yang menghargai keindahan dan keahlian dalam setiap proses pembuatan. Kami menawarkan koleksi sepatu dan fashion yang tidak hanya memenuhi kebutuhan gaya
+              hidup modern, tetapi juga mencerminkan kualitas dan keunikan yang tak tertandingi. Di setiap produk yang kami tawarkan, terdapat sentuhan personal dari para pengrajin ahli yang mencurahkan seluruh dedikasi dan keterampilan
+              mereka untuk menghasilkan karya terbaik
+            </p>
+          </div>
+          <button class="accordion" style="text-shadow: 2px 2px black">Detail</button>
+          <div class="panel">
+            <p style="text-shadow: 2px 2px black">
+              Di Toko Kami, kami memahami bahwa fashion adalah lebih dari sekadar pakaian atau aksesori. Fashion adalah sebuah pernyataan, sebuah cerita yang diceritakan melalui setiap jahitan, potongan, dan detail yang dikerjakan dengan
+              cermat. Setiap produk yang kami jual adalah buah dari proses yang penuh ketelitian, di mana bahan-bahan berkualitas tinggi dipilih dan diperlakukan dengan keahlian tangan yang terampil. Kami percaya bahwa keindahan sejati
+              terletak pada detail dan proses yang penuh perhatian.
+            </p>
+          </div>
+          <button class="accordion" style="text-shadow: 2px 2px black">Kenyamanan</button>
+          <div class="panel">
+            <p style="text-shadow: 2px 2px black">
+              Koleksi sepatu kami menawarkan kenyamanan dan gaya dalam satu paket, didesain untuk memenuhi berbagai kebutuhan, mulai dari keperluan sehari-hari hingga acara istimewa. Dengan berbagai pilihan desain yang inovatif dan klasik,
+              setiap pasang sepatu di Toko Kami memastikan Anda selalu tampil dengan percaya diri dan elegan.
+            </p>
+          </div>
+          <button class="accordion" style="text-shadow: 2px 2px black">Keberlanjutan</button>
+          <div class="panel">
+            <p style="text-shadow: 2px 2px black">
+              Sementara itu, koleksi fashion kami menghadirkan beragam pilihan pakaian dan aksesori yang dirancang untuk mengekspresikan kepribadian unik Anda. Dari pakaian kasual yang nyaman hingga busana formal yang anggun, setiap item
+              dipilih dengan teliti untuk memastikan bahwa hanya produk terbaik yang sampai ke tangan Anda. Kami bekerja sama dengan para desainer dan pengrajin yang memiliki visi dan semangat yang sama dalam menciptakan produk-produk yang
+              menginspirasi dan memukau.
+            </p>
+          </div>
+
+          <!-- Maps and History Section -->
+          <div class="maps-history-container">
+            <div class="maps" id="maps">
+              <hr />
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.029660652437!2d107.61289967527829!3d-6.887050667392664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6f8aa08188b%3A0x632d24e6061e8903!2sUniversitas%20Komputer%20Indonesia%20(UNIKOM)!5e0!3m2!1sid!2sid!4v1716889285929!5m2!1sid!2sid"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                >Unikom</iframe
+              >
+            </div>
+            <div class="history" id="history">
+              <h2 align="center" style="text-shadow: 2px 2px black">Sejarah Fachm Store</h2>
+              <div class="inner-box">
+                <p style="text-shadow: 2px 2px black">Sejarah panjang kami dimulai sejak tahun 2000, ketika kami pertama kali membuka toko di kota ini.</p>
+                <p style="text-shadow: 2px 2px black">Dengan visi untuk menyediakan produk berkualitas tinggi dan pelayanan terbaik, kami telah berkembang menjadi salah satu tujuan utama bagi para penggemar fashion di daerah ini</p>
+                <p style="text-shadow: 2px 2px black">
+                  Komitmen kami untuk inovasi dan kepuasan pelanggan terus memandu kami untuk menghadirkan produk yang tidak hanya memenuhi kebutuhan tetapi juga menciptakan pengalaman berbelanja yang tak terlupakan.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="banner-container" id="news">
+            <div class="banner">
+              <h1 style="text-shadow: 2px 2px black">Beli 1 Gratis 1!</h1>
+              <p style="text-shadow: 2px 2px black">
+                Jangan lewatkan penawaran dengan waktu terbatas ini. Beli satu produk dan dapatkan produk lainnya secara gratis!Jangan lewatkan penawaran dengan waktu terbatas ini. Beli satu produk dan dapatkan produk lainnya secara gratis!
+              </p>
+              <a href="#" class="button">Belanja Sekarang</a>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <!-- Ini adalah Footer -->
+      <tr>
+        <td colspan="2">
+          <div class="footer">
+            <div class="left">
+              <b style="text-shadow: 2px 2px black">Copyright © 2024 FACHM STORE</b>
+            </div>
+            <div class="center">
+              <b style="text-shadow: 2px 2px black">Under License</b>
+            </div>
+            <div class="right">
+              <b style="text-shadow: 2px 2px black">107º36' Bujur Timur dan 6º55' Lintang Selatan.</b>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <marquee behavior="alternate" direction="left"><b>TERIMAKASIH SUDAH BERBELANJA!</b></marquee>
+
+    <script>
+      var acc = document.getElementsByClassName('accordion');
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener('click', function () {
+          this.classList.toggle('active');
+          var panel = this.nextElementSibling;
+          if (panel.style.display === 'block') {
+            panel.style.display = 'none';
+          } else {
+            panel.style.display = 'block';
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

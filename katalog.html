@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 20px; /* Adds spacing between cells */
+            margin: 50px auto;
+        }
+        td {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            vertical-align: top;
+            padding: 10px; /* Adds padding inside the cells */
+        }
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+       .item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth transition for scaling effect */
+}
+
+.item:hover img {
+    transform: scale(1.1); /* Scale image to 110% of its original size */
+}
+        .item-details {
+            padding: 20px;
+            text-align: center;
+        }
+        .item-details h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+        .item-details p {
+            margin: 10px 0;
+            color: #777;
+        }
+        .item-details .price {
+            font-size: 20px;
+            color: #d9534f;
+            margin: 10px 0;
+        }
+        .item-details .original-price {
+            font-size: 16px;
+            color: #999;
+            text-decoration: line-through;
+        }
+        .add-to-cart {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .add-to-cart button {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .add-to-cart button:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <div class="item">
+                    <img src="gambar5.jpeg">
+                    <div class="item-details">
+                        <h3>Crewneck</h3>
+                        <p>Kode Produk: 00021</p>
+                        <div class="price">Rp. 800.000<span class="original-price"><span class="original-price">Rp. 400.000</span></div>
+                        <div class="add-to-cart"></span></div>
+                        <div class="add-to-cart">
+                            <button>Tambahkan ke keranjang</button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <img src="gambar6.jpeg">
+                    <div class="item-details">
+                        <h3>Sneakers</h3>
+                        <p>Kodde Produk: 00022</p>
+                        <div class="price">Rp. 1.850.000 <span class="original-price"> Rp. 2.000.000</span></div>
+                        <div class="add-to-cart">
+                            <button>Tambahkan Ke Keranjang</button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <img src="gambar7.jpeg" alt="Sports motorbike, multiple switch modes to help vehicles">
+                    <div class="item-details">
+                        <h3>T-shirt</h3>
+                        <p>Kode Produk: 00001</p>
+                        <div class="price">Rp. 385.000 <span class="original-price">Rp. 400.000</span></div>
+                        <div class="add-to-cart">
+                            <button>Tambahkan Ke Keranjang</button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="item">
+                    <img src="gambar8.jpeg" alt="Jeans">
+                    <div class="item-details">
+                        <h3>Jeans</h3>
+                        <p>Kode Produk: 00002</p>
+                        <div class="price">Rp. 1.300.000 <span class="original-price">Rp. 1.500.000</span></div>
+                        <div class="add-to-cart">
+                            <button>Tambahkan Ke Keranjang</button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <img src="gambar9.jpeg" alt="Jam Tangan">
+                    <div class="item-details">
+                        <h3>Jam Tangan</h3>
+                        <p>Kode Produk: 000012</p>
+                        <div class="price">Rp. 2.850.000 <span class="original-price">Rp. 3.000.000</span></div>
+                        <div class="add-to-cart">
+                            <button>Tambahkan Ke Keranjang</button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <img src="gambar10.jpeg" alt="Sepatu Pria">
+                    <div class="item-details">
+                        <h3>Sepatu Pria</h3>
+                        <p>Kode Produk: 00023</p>
+                        <div class="price">Rp. 999.999 <span class="original-price">Rp. 1.500.000</span></div>
+                        <div class="add-to-cart">
+                            <button>Tambahkan Ke Keranjang</button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="item">
+                    <img src="gambar11.jpeg" alt="Outer">
+                    <div class="item-details">
+                        <h3>Outer</h3>
+                        <p>Kode Produk: 000034</p>
+                        <div class="price">Rp. 750.000 <span class="original-price">Rp. 900.000</span></div>
+                        <div class="add-to-cart">
+                            <button>Tambahkan Ke Keranjang</button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <img src="gambar12.jpeg" alt="Kemeja">
+                    <div class="item-details">
+                        <h3>Kemeja</h3>
+                        <p>Kode Produk: 00024</p>
+                        <div class="price">Rp. 445.000 <span class="original-price">Rp. 500.000</span></div>
+                        <div class="add-to-cart">
+                            <button>Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="item">
+                    <img src="gambar13.jpeg" alt="Sepatu Lari">
+                    <div class="item-details">
+                        <h3>Sepatu Lari</h3>
+                        <p>Kode Produk: 00034</p>
+                        <div class="price">Rp. 1.700.000 <span class="original-price">Rp. 2.000.000</span></div>
+                        <div class="add-to-cart">
+                            <button>Tambahkan Ke Keranjang</button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
